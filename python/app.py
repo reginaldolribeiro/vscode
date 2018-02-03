@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+import re
 
 def cadastrar(nomes):
     print 'Digite: o nome:'
@@ -26,6 +27,9 @@ def menu():
 
         if(escolha == '5'):
             procurar(nomes)
+
+        if(escolha == '6'):
+            procurar_regex(nomes)
 
 def listar(nomes):
     print 'Listando nomes:'
@@ -62,5 +66,12 @@ def procurar(nomes):
         print 'Digite novo nome:'
         nome_novo = raw_input()
         nomes[posicao] = nome_novo '''
+
+def procurar_regex(nomes):
+    print('Digite a expressão regular')
+    regex = raw_input()   
+    nomes_concatenados = ' '.join(nomes)
+    resultados = re.findall(regex,nomes_concatenados)   
+    print(resultados)
 
 menu()          
